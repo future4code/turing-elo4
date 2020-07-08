@@ -6,16 +6,6 @@ import axios from "axios";
 
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products" 
 
-const o = {
-    "name": "meu Produto",
-    "description": "Esse é um produto muito legal!",
-    "price": 100,
-    "paymentMethod": "card",
-    "category": "Categoria 1",
-    "photos": ["https://picsum.photos/300/200"],
-    "installments": 3
-}
-
 export class AppContainer extends Component {
   state ={
     products: [],
