@@ -38,14 +38,14 @@ const Description = styled.p`
 
 const Price = styled.p`
     color: #363636;
-    margin: 8px 8px;
+    margin: 8px 0 0 8px;
     font-size: 14px;
 
 `;
 
 const DividePrice = styled.p`
     color: #363636;
-    margin: 8px 8px;
+    margin: 2px 8px;
     font-size: 14px;
 `;
 
@@ -56,7 +56,7 @@ export default props => {
         <CardDescription>
         <Description>{props.data.description}</Description>
         <b><Price>R$: {props.data.price}</Price></b>
-<DividePrice>{props.parcela}x R${props.data.price/props.parcela}</DividePrice>
+<DividePrice>{props.parcela}x R${props.data.price/props.parcela} sem juros</DividePrice>
         </CardDescription>
     </Card>
 }
