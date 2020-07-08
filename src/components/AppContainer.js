@@ -1,9 +1,4 @@
 
-import React, { Component } from 'react';
-import CardLogin from "./CardLogin";
-import styled from "styled-components";
-import axios from "axios";
-const url = "https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products" 
 
 export class AppContainer extends Component {
   state ={
@@ -31,7 +26,7 @@ export class AppContainer extends Component {
   render() {
       return (
       <div>
-     </div>
+
     )
   }
 }
