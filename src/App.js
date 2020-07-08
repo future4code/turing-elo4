@@ -19,7 +19,16 @@ const jss = create({
 	insertionPoint: document.getElementById('jss-insertion-point'),
 })
 
-const theme = createMuiTheme()
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+		main: "#6A34BB"
+		},
+		secondary: {
+		main:"#ffffff"
+		}
+	}
+})
 
 function App() {
 	return (
