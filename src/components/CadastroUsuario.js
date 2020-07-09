@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField';
-import Header from '../components/Header'
+import Button from '@material-ui/core/Button';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+
 const Div1=styled.div`
  display: flex;
     flex-direction: column;
@@ -13,7 +17,7 @@ const Div1=styled.div`
 
 const Div2=styled.div`
     width: 303px;
-    height: 476px;
+    height: 520px;
     border-radius: 17px;
     background-color: #F3F3F3;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -62,7 +66,16 @@ font-family:Arial, Helvetica, sans-serif;
 font-size:12px;
 color:#696969;
 
+`
 
+const PositionButtons=styled.div`
+display:flex;
+justify-content:center;
+`
+const DivIcon=styled.label`
+display:flex;
+margin-top:25px;
+justify-content:center;
 `
 
  class CadastroUsuario extends React.Component{
@@ -75,13 +88,22 @@ color:#696969;
         return(
 
             <div>
-      <Header />
+  
             <Div1>               
                 <Div2>
                     <Divcapfoto>
                          <Divfoto>
                              <Fotointeriorcero>
                                        <Fotointerioruno>
+
+                                              <DivIcon>
+                                             <label htmlFor="icon-button-file"   >
+                                               <IconButton color="primary" component="span">
+                                             <PhotoCamera />
+                                             </IconButton>
+                                             </label> 
+                                             </DivIcon>
+ 
                                        </Fotointerioruno>    
                                         
                              </Fotointeriorcero>
@@ -127,6 +149,12 @@ color:#696969;
           margin="normal"
         />                                
 
+        <PositionButtons>
+        <Button variant="contained" color="primary" >
+                    Enviar
+        </Button>
+        </PositionButtons>
+        
                                            </Inputss>
                                        </Positioninput>
                          </Divfoto>

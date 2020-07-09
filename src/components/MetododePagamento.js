@@ -15,9 +15,8 @@ const DivContenedor=styled.div`
 display:flex;
 justify-content:center;
 width:100vw;
-height: 90vh;
+height: 10vh;
 
-background-color:#E5E5E5;
 
 `
 const DivContenedor1=styled.div`
@@ -161,7 +160,7 @@ export class MetododePagamento extends React.Component{
       
         return(
             <div> 
-               <Header /> 
+            
                
 
 
