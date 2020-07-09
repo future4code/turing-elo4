@@ -1,4 +1,5 @@
-
+import React, { Component } from 'react'
+import 'typeface-roboto'
 
 export class AppContainer extends Component {
   state ={
@@ -26,7 +27,7 @@ export class AppContainer extends Component {
   render() {
       return (
       <div>
-
+      </div>
     )
   }
 }
