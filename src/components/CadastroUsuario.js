@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField';
-
+import Header from '../components/Header'
 const Div1=styled.div`
  display: flex;
     flex-direction: column;
@@ -74,6 +74,8 @@ color:#696969;
 
         return(
 
+            <div>
+      <Header />
             <Div1>               
                 <Div2>
                     <Divcapfoto>
@@ -131,7 +133,7 @@ color:#696969;
                     </Divcapfoto>
                 </Div2>
             </Div1>
- 
+ </div>
         )
     }
 }
