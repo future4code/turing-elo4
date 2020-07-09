@@ -49,6 +49,6 @@ export default props =>{
         <Input value={props.loginValue} onChange={props.handleOnChangeLogin}/> 
         <Text>Senha:</Text>
         <Input value={props.passworldValue} onChange={props.handleOnChangePassworld}/>
-        <MyButton variant={"contained"} color={'primary'} >Login</MyButton>
+        <MyButton variant={"contained"} color={'primary'} onClick={props.handleClicklogin} >Login</MyButton>
         </MyCard>
 }
