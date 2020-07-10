@@ -1,8 +1,7 @@
 import React from "react"
-import {Container, Container2, Form, AddImgage, Input} from './style'
+import {Container, Form, ButtonNext } from './style'
 import axios from 'axios'
 import Button from '@material-ui/core/Button'
-import Categoria  from './Categoria'
 
 class CadastroProduto extends React.Component {
     state = {
@@ -34,52 +33,57 @@ class CadastroProduto extends React.Component {
             name: this.state.nameValue,
             description: this.state.descriptionValue,
             price: this.state.priceValue,
+            paymentMethod: "card",
             category: this.state.categoryValue,
             photos: this.state.photosValue,
+            installments: 3
         }
 
-        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products', body,).then(response => {
+        axios
+        .post('https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products',
+        body,
+        )
+        .then(response => {
+            console.log(response.data)
             alert('Produto criado com sucesso!');
-        }).catch(err => {
+        })
+        .catch(err => {
             console.log(err.message);
         });
     };
-
-
-
 
     render() {
         return (
             <Container>
                 <h1>Cadastro de Produtos</h1>
-                <Container2>
-                    <AddImgage>
-                        <label>Adicionar foto do produto</label>
-                        <input type="text" placeholder="url da imagem do produto" />
-                        <Button variant="contained" color='primary'>Proximo</Button>
-                    </AddImgage>
                     <Form>
-                        <Input type='text'
+                        <label>Nome do Produto</label>
+                        <input type='text'
                             value={this.state.nameValue}
                             onChange={this.inputName}
-                            placeholder={'Nome do produto'} />
-                        <Input type='Number'
+                            placeholder={'tapete'} />
+                        <label>Preço</label>
+                        <input type='Number'
                             value={this.state.priceValue}
                             onChange={this.inputPreco}
-                            placeholder={'Preço'} />
-                        <Input
+                            placeholder={'R$ 10'} />
+                        <label>Adicionar foto do produto</label>
+                        <input
                             value={this.state.photosValue}
                             onChange={this.inputFoto}
-                            placeholder={'Url da Imagem'} />
+                            type="text"
+                            placeholder="url da imagem do produto"
+                        />
+                        <label>Descrição</label>
                         <textarea
                             rows='10' cols='30'
-                            value={this.state.Value}
+                            value={this.state.descriptionValue}
                             onChange={this.inputDescricao}
                             placeholder={'Descrição'} />
                     </Form>
-
-                </Container2>
-               <Button variant="contained" color='secondary'>Proximo</Button>
+                    <ButtonNext>
+                            <Button onClick={this.cadastrarProduto} variant="contained" color='primary'>Cadastrar Produto</Button>
+                    </ButtonNext>
             </Container>
         )
     }
