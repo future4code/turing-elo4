@@ -1,13 +1,11 @@
-import React, {
-  Component
-} from 'react'
+import React, {Component} from 'react'
 import 'typeface-roboto'
 import axios from "axios"
+import CadastroProduto from './CadastroProduto/CadastroProduto'
 import { LandingPage } from './LandingPage/LandingPage'
 
+
 const url = "https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products"
-
-
 
 export class AppContainer extends Component {
   state = {
@@ -31,12 +29,11 @@ export class AppContainer extends Component {
   delProduct = id => {
     axios.delete(url + "/" + id)
   }
+  
     render() {
       return ( 
       <div>
-        <LandingPage
-          produtos={this.state.products}
-        />
+        <LandingPage produtos={this.state.products}/>
         </div>
       )
     }
