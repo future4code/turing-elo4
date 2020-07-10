@@ -55,7 +55,7 @@ export default props => {
         <CardDescription>
         <Description>{props.data.description}</Description>
         <b><Price>R$: {props.data.price}</Price></b>
-<DividePrice>{props.parcela}x R${props.data.price/props.parcela} sem juros</DividePrice>
+        <DividePrice>{props.data.installments}x R${props.data.price/props.data.installments} sem juros</DividePrice>
         </CardDescription>
     </Card>
 }
