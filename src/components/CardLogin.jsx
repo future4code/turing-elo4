@@ -2,16 +2,27 @@ import React from "react";
 import Card from '@material-ui/core/Card';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
+import CancelIcon from "@material-ui/icons/Cancel"
 
 const MyCard = styled(Card)`
     background-color: #F3F3F3;
     display: flex;
+    position: fixed;
+    left: 35vw;
+    top: 25vh;
     flex-flow: column;
     align-items: center;
     width: 360px;
-    height: 265px;
+    height: 303px;
     
 `
+const MyCancelIcon = styled(CancelIcon)`
+    align-self: flex-end;
+    margin: 2%;
+    cursor: pointer;
+    color: #CD0C4C;
+`;
+
 const MyButton = styled(Button)`
     margin: 16px 0;
 `;
@@ -44,13 +55,13 @@ const Input = styled.input`
 export default props =>{
 
     return <MyCard>
+        <MyCancelIcon onClick={props.handleClickEntrar}/>
         <Titulo>Login</Titulo>
         <Text>Usuário/Email:</Text>
         <Input value={props.loginValue} onChange={props.handleOnChangeLogin}/> 
         <Text>Senha:</Text>
         <Input value={props.passworldValue} onChange={props.handleOnChangePassworld}/>
-        <MyButton variant={"contained"} color={'primary'} onClick={props.handleClicklogin} >Login</MyButton>
+        <MyButton onClick={props.handleClickLogin} variant={"contained"} color={'primary'}>Login</MyButton>
         </MyCard>
 }
 
-CardLogin.jsx
