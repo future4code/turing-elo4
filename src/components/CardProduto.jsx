@@ -10,6 +10,7 @@ const Card = styled.div`
     flex-flow: column wrap;
     height: 56vh;
     width:  16vw;
+    margin: 8vh 4vw;
     border-radius: 16px;
 `;
 

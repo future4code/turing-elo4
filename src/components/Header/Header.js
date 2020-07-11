@@ -55,15 +55,15 @@ class Header extends React.Component {
                             </SearchButton>
                         </SearchBar>
 
-                        {this.state.loginLogout === false ?
+                        {!this.props.logado ?
                             <LoginLogout>
-                                <Button color="secondary">Cadastrar</Button>
-                                <Button color="secondary" onClick={this.onClickLoginLogout}>Entrar</Button>
+                                <Button color="secondary" onClick={this.props.handleClickCadastrar}>Cadastrar</Button>
+                                <Button color="secondary" onClick={this.props.handleClickEntrar}>Entrar</Button>
                             </LoginLogout>
                         :
                             <LoginLogout>
-                                <Button color="secondary" >Quero Vender</Button>
-                                <Button color="secondary" onClick={this.onClickLoginLogout}>Sair</Button>
+                                <Button color="secondary" onClick={this.props.handleVender} >{ !this.props.cadastrando ? "Quero Vender" : "Quero Comprar"}</Button>
+                                <Button color="secondary" onClick={this.props.handleClickLogin}>Sair</Button>
                                 <Avatar alt="Remy Sharp" src="https://picsum.photos/80/80?a=1 "/>
                             </LoginLogout>
                         }

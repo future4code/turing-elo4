@@ -5,9 +5,10 @@ import Button from '@material-ui/core/Button';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import CancelIcon from "@material-ui/icons/Cancel"
 
-const Div1=styled.div`
- display: flex;
+const Div1=styled.div`  
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -17,16 +18,26 @@ const Div1=styled.div`
 
 const Div2=styled.div`
     width: 303px;
-    height: 520px;
+    height: 560px;
     border-radius: 17px;
     background-color: #F3F3F3;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 17px;
+    border-radius: 17px;
 `
+
+const MyCancelIcon = styled(CancelIcon)`
+    margin: 5% 0px 0px 88%;
+    cursor: pointer;
+    color: #CD0C4C;
+    
+`
+
+
 const Divcapfoto=styled.div`
- display: flex;
+    display: flex;
     justify-content: center;
 `
+
 const Divfoto=styled.div`
    margin-top: 30px;
     width: 115px;
@@ -91,6 +102,7 @@ justify-content:center;
   
             <Div1>               
                 <Div2>
+                  <MyCancelIcon  onClick={this.props.handleClickCadastrar}/>
                     <Divcapfoto>
                          <Divfoto>
                              <Fotointeriorcero>
