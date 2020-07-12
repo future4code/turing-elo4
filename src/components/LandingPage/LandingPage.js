@@ -46,7 +46,7 @@ export class LandingPage extends Component {
 
   render() {
     const lading = this.props.produtos.map(produto => {
-              return <CardProduto data={produto}/>  
+              return <CardProduto data={produto}/>
             })
 
       return (
@@ -63,7 +63,7 @@ export class LandingPage extends Component {
         {this.state.showCadastrar && <> <Blur></Blur> <DivPopUp><CadastroUsuario handleClickCadastrar={this.handleClickCadastrar}/></DivPopUp></>}
         {this.state.logando && <> <Blur></Blur><DivPopUp><CardLogin   handleClickLogin={this.handleClickLogin} handleClickEntrar={this.handleClickEntrar}/></DivPopUp></>}      
         <DivProdutos>
-          {!this.state.cadastrando ? <GridProdutos>{lading}</GridProdutos> : <CadastroProduto criarProduto={this.props.criarProduto} reload={this.props.reload} addProduto={this.props.addProduto}/> }
+          {!this.state.cadastrando ? <GridProdutos>{lading}</GridProdutos> : <CadastroProduto criarProduto={this.props.criarProduto } reload={this.props.reload} addProduto={this.props.addProduto} produto={this.props.produtos}/> }
             
         </DivProdutos>
       </Container>

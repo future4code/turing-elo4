@@ -1,5 +1,5 @@
 import React from "react"
-import {Container, Form, ButtonNext } from './style';
+import {Container, Form, ButtonNext, MeusProdutos, ContainerCadastro, List } from './style';
 import Button from '@material-ui/core/Button';
 
 class CadastroProduto extends React.Component {
@@ -44,7 +44,30 @@ class CadastroProduto extends React.Component {
     render() {
         return (
             <Container>
-                <h1>Cadastro de Produtos</h1>
+                <MeusProdutos>
+                    <List>
+                        <h1>Meus Produtos</h1>
+                        <ul>
+                            {this.props.produto.map(produto => {
+                                return (
+                                    <li>
+                                        <img src={produto.photos} alt="Imagem do produto" />
+                                        <p>{produto.name}</p>
+                                        <p>{produto.description}</p>
+                                        <p>R$ {produto.price}</p>
+                                        <span onClick={''}>excluir produto</span>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </List>
+                    <div>
+                        <Button onClick={''} size="small">Limpar Carrinho</Button>
+                    </div>
+                </MeusProdutos>
+
+                <ContainerCadastro>
+                    <h1>Cadastro de Produto</h1>
                     <Form>
                         <label>Nome do Produto</label>
                         <input type='text'
@@ -73,6 +96,7 @@ class CadastroProduto extends React.Component {
                     <ButtonNext>
                             <Button onClick={this.cadastrarProduto} variant="contained" color='primary'>Cadastrar Produto</Button>
                     </ButtonNext>
+                </ContainerCadastro>
             </Container>
         )
     }

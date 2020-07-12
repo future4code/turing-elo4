@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 
 
@@ -13,7 +12,6 @@ const Card = styled.div`
 
 const CardDescription = styled.div`
     background-color: #E9E8E8;
-    height: 67px;
     width: 100%;
     border-radius: 4px;
     margin: 10px 0;
@@ -25,12 +23,16 @@ const CardImg = styled.img`
     width: 100%;
     border-radius: 8px;
 `
+const Name = styled.h3`
+    color: #363636;
+    margin: 4px;
+`
+
 const Description = styled.p`
     color: #6A34BB; 
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
-    text-align: center;
-    margin: 0;
+    margin: 0 8px;
 `;
 
 const Price = styled.p`
@@ -51,6 +53,7 @@ export default props => {
     return <Card> 
         <CardImg src={props.data.photos}/>
         <CardDescription>
+        <Name>{props.data.name}</Name>
         <Description>{props.data.description}</Description>
         <b><Price>R$: {props.data.price}</Price></b>
         <DividePrice>{props.data.installments}x R${props.data.price/props.data.installments} sem juros</DividePrice>
