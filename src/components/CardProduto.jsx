@@ -8,16 +8,13 @@ import axios from "axios";
 const Card = styled.div`
     display: flex;
     flex-flow: column wrap;
-    height: 56vh;
-    width:  16vw;
-    margin: 8vh 4vw;
     border-radius: 16px;
 `;
 
 const CardDescription = styled.div`
     background-color: #E9E8E8;
     height: 67px;
-    width: 243px;
+    width: 100%;
     border-radius: 4px;
     margin: 10px 0;
 
@@ -25,7 +22,7 @@ const CardDescription = styled.div`
 
 const CardImg = styled.img`
     height: 254px;
-    width: 248px;
+    width: 100%;
     border-radius: 8px;
 `
 const Description = styled.p`

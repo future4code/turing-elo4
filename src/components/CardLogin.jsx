@@ -36,7 +36,7 @@ const Titulo = styled.p`
 
 const Text = styled.p`
     align-self: flex-start;
-    color: #BBBBBC;
+    color: #696969;
     font-weight: 500;
     margin: 16px 8px;
 `;

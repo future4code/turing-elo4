@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
-import axios from "axios";
+import {GridProdutos} from "./style";
 import CardLogin from "../CardLogin"
 import CadastroUsuario from "../CadastroUsuario"
 import CadastroProduto from "../CadastroProduto/CadastroProduto"
@@ -63,7 +63,7 @@ export class LandingPage extends Component {
         {this.state.showCadastrar && <> <Blur></Blur> <DivPopUp><CadastroUsuario handleClickCadastrar={this.handleClickCadastrar}/></DivPopUp></>}
         {this.state.logando && <> <Blur></Blur><DivPopUp><CardLogin   handleClickLogin={this.handleClickLogin} handleClickEntrar={this.handleClickEntrar}/></DivPopUp></>}      
         <DivProdutos>
-          {!this.state.cadastrando ? <>{lading}</> : <CadastroProduto/> }
+          {!this.state.cadastrando ? <GridProdutos>{lading}</GridProdutos> : <CadastroProduto criarProduto={this.props.criarProduto} reload={this.props.reload} addProduto={this.props.addProduto}/> }
             
         </DivProdutos>
       </Container>

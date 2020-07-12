@@ -1,6 +1,5 @@
 import React from "react"
 import {Container, Form, ButtonNext } from './style';
-import axios from 'axios';
 import Button from '@material-ui/core/Button';
 
 class CadastroProduto extends React.Component {
@@ -9,7 +8,7 @@ class CadastroProduto extends React.Component {
         descriptionValue: '',
         priceValue: '',
         categoryValue: "1",
-        photosValue: "",
+        photosValue: [],
     }
 
     inputName = event => {
@@ -35,22 +34,12 @@ class CadastroProduto extends React.Component {
             price: this.state.priceValue,
             paymentMethod: "card",
             category: this.state.categoryValue,
-            photos: this.state.photosValue,
+            photos: [this.state.photosValue],
             installments: 3
         }
-
-        axios
-        .post('https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products',
-        body,
-        )
-        .then(response => {
-            console.log(response.data)
-            alert('Produto criado com sucesso!');
-        })
-        .catch(err => {
-            console.log(err.message);
-        });
-    };
+        this.props.addProduto(body)
+        this.props.reload()
+    }
 
     render() {
         return (

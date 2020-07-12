@@ -14,7 +14,7 @@ export const Container = styled.div`
 export const DivProdutos = styled.div`
     display: flex;
     flex-flow: row wrap;
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
     overflow: auto;
 `;
@@ -32,4 +32,11 @@ export const Blur = styled.div`
     width: 100vw;
     position: fixed;
 
+`
+
+export const GridProdutos = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 16px;
 `

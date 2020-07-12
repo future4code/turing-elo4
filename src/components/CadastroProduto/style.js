@@ -6,7 +6,7 @@ export const Container = styled.main`
     justify-content:center;
     align-items:center;
     width: 800px;
-    height: 100vh;
+    height: 90vh;
     margin: 0 auto;
 `
 
@@ -15,7 +15,6 @@ export const Form = styled.div`
     flex-direction: column;
     margin-top: 32px;
     width: 310px;
-    height: 400px;
 
     label {
         border-top: 1px solid #b3b3b3;
@@ -35,10 +34,11 @@ export const Form = styled.div`
         border-bottom: 1px solid #b3b3b3;
         padding-left: 32px;
         outline:none;
+        height: 60px;
     }
 `
 
 export const ButtonNext  = styled.div`
     align-self: flex-end;
-    margin-top: 32px;
+    margin-top: 16px;
 `
