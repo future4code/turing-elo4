@@ -23,16 +23,20 @@ export class AppContainer extends Component {
 
   addProduct = (body) => {
     axios.post(url, body).then(response => console.log(response.data)).catch(err => console.log(err.menssage))
+    this.getAllProducts()
   }
   
   delProduct = id => {
-    axios.delete(url + "/" + id)
+    if (window.confirm("Tem certeza que quer excluir esse produto?")) {
+      axios.delete(url + "/" + id)
+      this.getAllProducts()
+    }
   }
   
     render() {
       return ( 
       <div>
-        <LandingPage produtos={this.state.products} reload={this.getAllProducts} addProduto={this.addProduct}/>
+        <LandingPage produtos={this.state.products} reload={this.getAllProducts} addProduto={this.addProduct} delProduct={this.delProduct}/>
         </div>
       )
     }

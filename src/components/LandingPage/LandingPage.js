@@ -31,7 +31,6 @@ export class LandingPage extends Component {
 
   handleClickLogin = () =>{
     this.setState({logando: !this.state.logando});
-    console.log("clicou");
     this.setState({logado: true});
   }
 
@@ -63,7 +62,7 @@ export class LandingPage extends Component {
         {this.state.showCadastrar && <> <Blur></Blur> <DivPopUp><CadastroUsuario handleClickCadastrar={this.handleClickCadastrar}/></DivPopUp></>}
         {this.state.logando && <> <Blur></Blur><DivPopUp><CardLogin   handleClickLogin={this.handleClickLogin} handleClickEntrar={this.handleClickEntrar}/></DivPopUp></>}      
         <DivProdutos>
-          {!this.state.cadastrando ? <GridProdutos>{lading}</GridProdutos> : <CadastroProduto criarProduto={this.props.criarProduto } reload={this.props.reload} addProduto={this.props.addProduto} produto={this.props.produtos}/> }
+          {!this.state.cadastrando ? <GridProdutos>{lading}</GridProdutos> : <CadastroProduto criarProduto={this.props.criarProduto } reload={this.props.reload} addProduto={this.props.addProduto} produto={this.props.produtos} delProduct={this.props.delProduct}/> }
             
         </DivProdutos>
       </Container>

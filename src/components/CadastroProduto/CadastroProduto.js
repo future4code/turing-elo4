@@ -39,6 +39,7 @@ class CadastroProduto extends React.Component {
         }
         this.props.addProduto(body)
         this.props.reload()
+        this.setState({nameValue: "", priceValue: "", photosValue: [], descriptionValue: ""})
     }
 
     render() {
@@ -55,15 +56,12 @@ class CadastroProduto extends React.Component {
                                         <p>{produto.name}</p>
                                         <p>{produto.description}</p>
                                         <p>R$ {produto.price}</p>
-                                        <span onClick={''}>excluir produto</span>
+                                        <span onClick={() => this.props.delProduct(produto.id)}>excluir produto</span>
                                     </li>
                                 )
                             })}
                         </ul>
                     </List>
-                    <div>
-                        <Button onClick={''} size="small">Limpar Carrinho</Button>
-                    </div>
                 </MeusProdutos>
 
                 <ContainerCadastro>
