@@ -1,6 +1,5 @@
 import React from "react"
-import {Container, Form, ButtonNext } from './style';
-import axios from 'axios';
+import {Container, Form, ButtonNext, MeusProdutos, ContainerCadastro, List } from './style';
 import Button from '@material-ui/core/Button';
 
 class CadastroProduto extends React.Component {
@@ -9,7 +8,7 @@ class CadastroProduto extends React.Component {
         descriptionValue: '',
         priceValue: '',
         categoryValue: "1",
-        photosValue: "",
+        photosValue: [],
     }
 
     inputName = event => {
@@ -35,27 +34,38 @@ class CadastroProduto extends React.Component {
             price: this.state.priceValue,
             paymentMethod: "card",
             category: this.state.categoryValue,
-            photos: this.state.photosValue,
+            photos: [this.state.photosValue],
             installments: 3
         }
-
-        axios
-        .post('https://us-central1-labenu-apis.cloudfunctions.net/eloFourOne/products',
-        body,
-        )
-        .then(response => {
-            console.log(response.data)
-            alert('Produto criado com sucesso!');
-        })
-        .catch(err => {
-            console.log(err.message);
-        });
-    };
+        this.props.addProduto(body)
+        this.props.reload()
+        this.setState({nameValue: "", priceValue: "", photosValue: [], descriptionValue: ""})
+    }
 
     render() {
         return (
             <Container>
-                <h1>Cadastro de Produtos</h1>
+                <MeusProdutos>
+                    <List>
+                        <h1>Meus Produtos</h1>
+                        <ul>
+                            {this.props.produto.map(produto => {
+                                return (
+                                    <li>
+                                        <img src={produto.photos} alt="Imagem do produto" />
+                                        <p>{produto.name}</p>
+                                        <p>{produto.description}</p>
+                                        <p>R$ {produto.price}</p>
+                                        <span onClick={() => this.props.delProduct(produto.id)}>excluir produto</span>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </List>
+                </MeusProdutos>
+
+                <ContainerCadastro>
+                    <h1>Cadastro de Produto</h1>
                     <Form>
                         <label>Nome do Produto</label>
                         <input type='text'
@@ -84,6 +94,7 @@ class CadastroProduto extends React.Component {
                     <ButtonNext>
                             <Button onClick={this.cadastrarProduto} variant="contained" color='primary'>Cadastrar Produto</Button>
                     </ButtonNext>
+                </ContainerCadastro>
             </Container>
         )
     }
